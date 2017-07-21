@@ -4,6 +4,7 @@ import '../static/styles/App.css';
 import Header from '../components/Header';
 import Left from '../components/Left';
 import Right from '../components/Right';
+import Filter from '../components/Filter';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
               <div className="row">
                   <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                       <Left/>
+                      <Filter/>
                   </div>
                   <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                       <Right/>
