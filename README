@@ -1,0 +1,6 @@
+npm install react-redux --save
+npm install --save redux
+npm install --save redux-logger
+npm install flexboxgrid --save
+npm install --save @blueprintjs/core
+
