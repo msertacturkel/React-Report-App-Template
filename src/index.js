@@ -6,6 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 
 import 'flexboxgrid/dist/flexboxgrid.css';
 import '@blueprintjs/core/dist/blueprint.css';
+import '@blueprintjs/table/dist/table.css';
+import 'chart.js/dist/Chart';
 import {Provider} from 'react-redux';
 import store from "./store";
 
