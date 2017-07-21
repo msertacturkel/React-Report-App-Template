@@ -6,3 +6,8 @@ export function clickEvent(){
         type:"CLICK_EVENT"
     };
 }
+export function selectReportEvent(){
+    return {
+        type:"SELECT_REPORT_EVENT"
+    };
+}

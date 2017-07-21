@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {clickEvent} from "../actions/eventActions";
-
+import {selectReportEvent} from "../actions/eventActions";
 
 class Header extends Component {
     render() {
@@ -18,7 +18,7 @@ class Header extends Component {
                             onClick={()=>this.props.clickEvent()}>Filters
                     </button>
                     <span className="pt-navbar-divider"></span>
-                    <button className="pt-button pt-minimal pt-icon-list">
+                    <button className="pt-button pt-minimal pt-icon-list" onClick={()=>this.props.selectReportEvent()}>
                         Reports
                     </button>
                 </div>
@@ -44,6 +44,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         clickEvent: () => {
             dispatch(clickEvent())
+        },
+        selectReportEvent: () => {
+            dispatch(selectReportEvent())
         }
     };
 

@@ -3,12 +3,19 @@
  */
 const eventReducer = (state = {
     click: false,
+    selectReportClick:false
 }, action) => {
     switch (action.type) {
         case "CLICK_EVENT":
             state = {
                 ...state,
                 click: !state.click
+            };
+            break;
+        case "SELECT_REPORT_EVENT":
+            state = {
+                ...state,
+                selectReportClick: !state.selectReportClick
             };
             break;
         default:
