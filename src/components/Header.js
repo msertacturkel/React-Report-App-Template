@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {clickEvent} from "../actions/eventActions";
 
+
 class Header extends Component {
     render() {
         return (
@@ -14,7 +15,7 @@ class Header extends Component {
                     <div className="pt-navbar-heading">Report Application Template</div>
                     <span className="pt-navbar-divider"></span>
                     <button className="pt-button pt-minimal pt-icon-vertical-bar-chart-desc"
-                            onClick={this.props.clickEvent}>Filters
+                            onClick={()=>this.props.clickEvent()}>Filters
                     </button>
                     <span className="pt-navbar-divider"></span>
                     <button className="pt-button pt-minimal pt-icon-list">

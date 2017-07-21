@@ -6,3 +6,8 @@ export function clickEvent(){
         type:"CLICK_EVENT"
     };
 }
+export function donbebegim(){
+    return {
+        type:"DON_BEBEK"
+    };
+}
