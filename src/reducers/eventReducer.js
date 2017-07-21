@@ -3,19 +3,12 @@
  */
 const eventReducer = (state = {
     click: false,
-    don:false
 }, action) => {
     switch (action.type) {
         case "CLICK_EVENT":
             state = {
                 ...state,
                 click: !state.click
-            };
-            break;
-        case "DON_BEBEK":
-            state = {
-                ...state,
-                don: !state.don
             };
             break;
         default:
