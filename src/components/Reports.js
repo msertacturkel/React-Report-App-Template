@@ -8,12 +8,24 @@ import {Button, Dialog, Intent} from "@blueprintjs/core";
 import {connect} from 'react-redux';
 import {selectReportEvent} from "../actions/eventActions";
 import {selectedReport} from "../actions/eventActions";
+import { createHashHistory } from 'history';
 
+import {
+    BrowserRouter as Router,
+    Route
+} from 'react-router-dom';
+
+
+import {User} from "./User";
+import {Home} from "./Home";
+
+export const history = createHashHistory();
 class Report extends Component {
 
     render() {
         return (
             <div className="pt-card" hidden="true">
+
                 <div>
                     <Dialog
                         iconName="home"
@@ -23,10 +35,19 @@ class Report extends Component {
                     >
 
                         <div className="pt-dialog-body">
+
+                            <Router>
+                                <div>
+                                    <Route exact path="/" component={Home}/>
+                                    <Route path={this.props.selectedReportValue} component={User}/>
+                                </div>
+                            </Router>
+
+
                             <div className="row">
                                 <div className="pt-select col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                     <select onChange={(e)=>this.props.selectedReport(e.target.value)}>
-                                        <option value="Orange">Orange</option>
+                                        <option value="sec">Lutfen Seciniz</option>
                                         <option value="Radish">Radish</option>
                                         <option value="Cherry">Cherry</option>
                                     </select>
@@ -45,6 +66,7 @@ class Report extends Component {
                                     intent={Intent.PRIMARY}
                                     text="Go to Report"
                                     onClick={() => {
+                                        history.push(this.props.selectedReportValue);
                                         this.props.selectReportEvent();
                                     }}
                                 />
@@ -60,7 +82,7 @@ class Report extends Component {
 const mapStateToProps = (state) => {
     return {
         selectReportClicked: state.events.selectReportClick,
-        selectedReport: state.events.selectedReportFromCombobox
+        selectedReportValue: state.events.selectedReportFromCombobox
     };
 };
 const mapDispatchToProps = (dispatch) => {
