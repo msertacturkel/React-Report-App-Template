@@ -11,3 +11,10 @@ export function selectReportEvent(){
         type:"SELECT_REPORT_EVENT"
     };
 }
+
+export function selectedReport(selectedReportFromCombobox){
+    return {
+        type:"SELECTED_REPORT_FROM_COMBOBOX",
+        payload:selectedReportFromCombobox
+    };
+}

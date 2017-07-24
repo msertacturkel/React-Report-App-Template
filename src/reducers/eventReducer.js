@@ -3,7 +3,8 @@
  */
 const eventReducer = (state = {
     click: false,
-    selectReportClick:false
+    selectReportClick:false,
+    selectedReportFromCombobox:"index"
 }, action) => {
     switch (action.type) {
         case "CLICK_EVENT":
@@ -16,6 +17,12 @@ const eventReducer = (state = {
             state = {
                 ...state,
                 selectReportClick: !state.selectReportClick
+            };
+            break;
+        case "SELECTED_REPORT_FROM_COMBOBOX":
+            state = {
+                ...state,
+                selectedReportFromCombobox: action.payload
             };
             break;
         default:

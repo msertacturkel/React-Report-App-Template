@@ -7,6 +7,7 @@ import {Button, Dialog, Intent} from "@blueprintjs/core";
 
 import {connect} from 'react-redux';
 import {selectReportEvent} from "../actions/eventActions";
+import {selectedReport} from "../actions/eventActions";
 
 class Report extends Component {
 
@@ -24,9 +25,10 @@ class Report extends Component {
                         <div className="pt-dialog-body">
                             <div className="row">
                                 <div className="pt-select col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <select>
-                                        <option>Select Report</option>
-                                        <option defaultValue="1">One</option>
+                                    <select onChange={(e)=>this.props.selectedReport(e.target.value)}>
+                                        <option value="Orange">Orange</option>
+                                        <option value="Radish">Radish</option>
+                                        <option value="Cherry">Cherry</option>
                                     </select>
                                 </div>
                             </div>
@@ -57,13 +59,17 @@ class Report extends Component {
 };
 const mapStateToProps = (state) => {
     return {
-        selectReportClicked: state.events.selectReportClick
+        selectReportClicked: state.events.selectReportClick,
+        selectedReport: state.events.selectedReportFromCombobox
     };
 };
 const mapDispatchToProps = (dispatch) => {
     return {
         selectReportEvent: () => {
             dispatch(selectReportEvent())
+        },
+        selectedReport: (selectedReportFromCombobox) => {
+            dispatch(selectedReport(selectedReportFromCombobox))
         }
     };
 };
